@@ -33,3 +33,14 @@ Feature: Listar informações sobre o desempenho dos alunos em diferentes discip
         Then eu devo ver uma mensagem erro informando que o relatório de desempenho está indisponível para o aluno "Cleber Lucas"
         And não deve ser exibida nenhuma lista de disciplinas
         And eu permaneço na página "Alunos"
+    
+
+    Scenario: Falha ao carregar relatório de desempenho devido a erro no servidor
+
+        Given que estou logado como "Professor" na disciplina "ESS"
+        And estou na página "Alunos"
+        When eu seleciono "Visualizar desempenho" ao lado do aluno "Mauricio Andrey"
+        And o servidor retorna um erro interno
+        Then eu devo ver uma mensagem informando que não foi possível carregar as informações de desempenho do aluno "Mauricio Andrey"
+        And nenhuma informação de disciplinas deve ser exibida
+        And eu permaneço na página "Alunos"
