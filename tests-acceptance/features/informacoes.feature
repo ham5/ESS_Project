@@ -22,3 +22,14 @@ Feature: Listar informações sobre o desempenho dos alunos em diferentes discip
         Then eu vejo uma lista contendo as disciplinas do aluno "Mauricio Andrey"
         And eu devo ver o status "aprovado" ao lado das disciplinas aprovadas
         And eu devo ver o status "reprovado" ao lado das disciplinas reprovadas
+
+
+    Scenario: Acessar relatório de desempenho indisponível
+
+        Given que estou logado como "Professor" na disciplina "ESS"
+        And estou na página "Alunos"
+        When eu seleciono "Visualizar desempenho" ao lado do aluno "Cleber Lucas"
+        And o sistema não encontra o relatório de desempenho do aluno
+        Then eu devo ver uma mensagem erro informando que o relatório de desempenho está indisponível para o aluno "Cleber Lucas"
+        And não deve ser exibida nenhuma lista de disciplinas
+        And eu permaneço na página "Alunos"
