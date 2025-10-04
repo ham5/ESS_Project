@@ -44,3 +44,4 @@ Feature: Listar informações sobre o desempenho dos alunos em diferentes discip
         Then eu devo ver uma mensagem informando que não foi possível carregar as informações de desempenho do aluno "Mauricio Andrey"
         And nenhuma informação de disciplinas deve ser exibida
         And eu permaneço na página "Alunos"
+        And eu estou logado como "Professor" na disciplina "ESS"
