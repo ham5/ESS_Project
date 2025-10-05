@@ -46,10 +46,10 @@ Feature: Listar informações sobre o desempenho dos alunos em diferentes discip
         And eu permaneço na página "Alunos"
         And eu estou logado como "Professor" na disciplina "ESS"
 
-    Scenario: Tempo de resposta ao carregar relatório de desempenho
+    Scenario: Tempo de resposta adequado ao carregar relatório de desempenho
 
         Given que estou logado como "Professor" na disciplina "ESS"
         And estou na página "Alunos"
         When eu seleciono "Visualizar desempenho" ao lado do aluno "Cleber Lucas"
-        Then o relatório de desempenho do aluno "Cleber Lucas" deve ser carregado em menos de "3" segundos
+        Then o relatório de desempenho do aluno "Cleber Lucas" deve ser carregado em menos de "2" segundos
         And eu devo ver a lista de disciplinas do aluno
