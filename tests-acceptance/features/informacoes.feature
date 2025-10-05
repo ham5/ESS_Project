@@ -53,3 +53,11 @@ Feature: Listar informações sobre o desempenho dos alunos em diferentes discip
         When eu seleciono "Visualizar desempenho" ao lado do aluno "Cleber Lucas"
         Then o relatório de desempenho do aluno "Cleber Lucas" deve ser carregado em menos de "2" segundos
         And eu devo ver a lista de disciplinas do aluno
+
+
+    Scenario: Ocultar opção de visualização de desempenho para usuários do tipo "Aluno"
+
+        Given que estou logado como "Aluno" na disciplina "ESS"
+        And estou na página "Alunos"
+        Then a opção "Visualizar desempenho" não deve ser exibida ao lado de nenhum aluno
+        And eu não devo ter acesso a nenhuma informação de desempenho
